@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { User } from "../user/user";
+import "./app.css";
 
 export const App = () => {
   // Вот тут место для обозначения состояния компонента или хранения данных
@@ -19,14 +20,14 @@ export const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>LIST OF ALL USERS</h1>
+    <div className="app">
+      <h1 className="title">LIST OF ALL USERS</h1>
       <ul>
         {/* Мы перебираем массив и на каждый элемент массива возвращаем JSX/HTML разметку, используя map для преобразования */}
         {users.map((user, index) => {
           // При переборе массива каждый элемент должен иметь свой уникальный ключ key
           return (
-            <li key={user.id}>
+            <li key={user.id} className="card">
               {/* Передаем копмоненту User объект user целиком через props userData, которую ждет наш компонент */}
               <User userData={user} isOdd={(index + 1) % 2 !== 0} />
             </li>
