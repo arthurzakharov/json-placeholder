@@ -1,12 +1,24 @@
 import PropTypes from "prop-types";
 import "./user.css";
+import { useState } from "react";
 
 export const User = (props) => {
   const { userData, isOdd } = props;
+  const [seeMore, setSeeMore] = useState(false);
 
   // В зависимости от значения пропсы isOdd будем добалять модивикаторы к корневому тегу
   const userCn = () => {
     return isOdd ? "user user--odd" : "user user--even";
+  };
+
+  // Получить текст кнопки в зависимости от состояния seeMore
+  const getBtnText = () => {
+    return seeMore ? "Less" : "More";
+  };
+
+  // Заводим обработчик слушателя, который будет менять состояния seeMore
+  const onBtnClick = () => {
+    setSeeMore(!seeMore);
   };
 
   return (
@@ -24,6 +36,26 @@ export const User = (props) => {
           <b>Phone: </b>
           {userData.phone}
         </p>
+        {seeMore ? (
+          <div>
+            <p>
+              <b>Street: </b> {userData.address.street}
+            </p>
+            <p>
+              <b>Suite: </b> {userData.address.suite}
+            </p>
+            <p>
+              <b>City: </b> {userData.address.city}
+            </p>
+            <p>
+              <b>Zip: </b> {userData.address.zipcode}
+            </p>
+          </div>
+        ) : null}
+        {/* Кнопка прячет доп информацию и меняет свой текст */}
+        <button type="button" onClick={onBtnClick}>
+          {getBtnText()}
+        </button>
       </div>
     </div>
   );
