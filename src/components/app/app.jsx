@@ -27,7 +27,7 @@ export const App = () => {
         {users.map((user, index) => {
           // При переборе массива каждый элемент должен иметь свой уникальный ключ key
           return (
-            <li key={user.id} className="card">
+            <li key={user.id}>
               {/* Передаем копмоненту User объект user целиком через props userData, которую ждет наш компонент */}
               <User userData={user} isOdd={(index + 1) % 2 !== 0} />
             </li>

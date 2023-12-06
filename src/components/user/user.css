@@ -1,0 +1,16 @@
+.user {
+  width: 300px;
+  height: 80px;
+  padding: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.user--odd {
+  background-color: darkgray;
+}
+
+.user--even {
+  background-color: gray;
+}

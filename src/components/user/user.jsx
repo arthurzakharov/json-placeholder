@@ -1,10 +1,16 @@
 import PropTypes from "prop-types";
+import "./user.css";
 
 export const User = (props) => {
   const { userData, isOdd } = props;
 
+  // В зависимости от значения пропсы isOdd будем добалять модивикаторы к корневому тегу
+  const userCn = () => {
+    return isOdd ? "user user--odd" : "user user--even";
+  };
+
   return (
-    <div>
+    <div className={userCn()}>
       <div>
         <p>
           <b>Name: </b>
