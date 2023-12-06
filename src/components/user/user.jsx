@@ -88,3 +88,6 @@ User.propTypes = {
   }),
   isOdd: PropTypes.bool,
 };
+
+// Это меняет то как называется компонент в вкладке Components
+User.displayName = "SomeUser";
